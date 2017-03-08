@@ -3,6 +3,7 @@ import HomePage from './components/HomePage.jsx';
 import DashboardPage from './containers/DashboardPage.jsx';
 import LoginPage from './containers/LoginPage.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
+import UsersPage from './containers/UsersPage.jsx';
 import Auth from './modules/Auth';
 
 
@@ -40,6 +41,10 @@ const routes = {
         // change the current URL to /
         replace('/');
       }
+    },
+    {
+      path: '/users',
+      component: UsersPage
     }
 
   ]

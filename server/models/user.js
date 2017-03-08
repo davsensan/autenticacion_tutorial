@@ -8,7 +8,8 @@ const UserSchema = new mongoose.Schema({
     index: { unique: true }
   },
   password: String,
-  name: String
+  name: String,
+  timestand: String
 });
 
 
@@ -41,6 +42,9 @@ UserSchema.pre('save', function saveHook(next) {
 
       // replace a password string with hash value
       user.password = hash;
+
+      //Timestand 
+      user.timestand = new Date().toString();
 
       return next();
     });

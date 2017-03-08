@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
-
+import { Link, IndexLink } from 'react-router';
 
 const Dashboard = ({ secretData }) => (
   <Card className="container">
@@ -10,6 +10,7 @@ const Dashboard = ({ secretData }) => (
     />
 
     {secretData && <CardText style={{ fontSize: '16px', color: 'green' }}>{secretData}</CardText>}
+    
   </Card>
 );
 
