@@ -4,6 +4,8 @@ import DashboardPage from './containers/DashboardPage.jsx';
 import LoginPage from './containers/LoginPage.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
 import UsersPage from './containers/UsersPage.jsx';
+import ForgotPage from './containers/ForgotPage.jsx';
+import NewPasswordPage from './containers/NewPasswordPage.jsx';
 import Auth from './modules/Auth';
 
 
@@ -45,6 +47,13 @@ const routes = {
     {
       path: '/users',
       component: UsersPage
+    },
+    {
+      path: '/forgot',
+      component: ForgotPage
+    },{
+      path: '/reset/*',
+      component: NewPasswordPage
     }
 
   ]

@@ -5,18 +5,16 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
 
-const LoginForm = ({
+const Forgot = ({
   onSubmit,
   onChange,
   errors,
-  successMessage,
   user
 }) => (
   <Card className="container">
     <form action="/" onSubmit={onSubmit}>
-      <h2 className="card-heading">Login</h2>
+      <h2 className="card-heading">Forgot Password</h2>
 
-      {successMessage && <p className="success-message">{successMessage}</p>}
       {errors.summary && <p className="error-message">{errors.summary}</p>}
 
       <div className="field-line">
@@ -29,33 +27,20 @@ const LoginForm = ({
         />
       </div>
 
-      <div className="field-line">
-        <TextField
-          floatingLabelText="Password"
-          type="password"
-          name="password"
-          onChange={onChange}
-          errorText={errors.password}
-          value={user.password}
-        />
-      </div>
-
       <div className="button-line">
-        <RaisedButton type="submit" label="Log in" primary />
+        <RaisedButton type="submit" label="Send" primary />
       </div>
 
-      <CardText>Don't have an account? <Link to={'/signup'}>Create one</Link>.</CardText>
-      <CardText> Forgot your password? <Link to={'/forgot'}>Reset password</Link>.</CardText>
+      <CardText>Do yo have an account? <Link to={'/login'}>Log in</Link>.</CardText>
     </form>
   </Card>
 );
 
-LoginForm.propTypes = {
+Forgot.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
-  successMessage: PropTypes.string.isRequired,
   user: PropTypes.object.isRequired
 };
 
-export default LoginForm;
+export default Forgot;

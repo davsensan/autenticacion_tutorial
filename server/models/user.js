@@ -9,7 +9,9 @@ const UserSchema = new mongoose.Schema({
   },
   password: String,
   name: String,
-  timestand: String
+  timestand: String,
+  resetPasswordToken: String,
+  resetPasswordEspires: Date
 });
 
 
