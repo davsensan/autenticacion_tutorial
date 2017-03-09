@@ -51,10 +51,16 @@ const routes = {
     {
       path: '/forgot',
       component: ForgotPage
-    },{
+    },
+    {
       path: '/reset/:token',
       component: NewPasswordPage
-    }
+    },
+    {
+      path: '/changePassword',
+      component: ChangePasswordPage
+    },
+
 
   ]
 };
