@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import Auth from '../modules/Auth';
-import NewPassword from '../components/NewPassword.jsx';
+import ChangeProfile from '../components/ChangeProfile.jsx';
 
 
-class ChangePasswordPage extends React.Component {
+class ChangeProfilePage extends React.Component {
 
   /**
    * Class constructor.
@@ -11,16 +11,20 @@ class ChangePasswordPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
+    const name = localStorage.getItem('userProfileName');
+    const email = localStorage.getItem('userProfileEmail')
+    console.log("name: " + name + " email: " + email)
     // set the initial component state
     this.state = {
       errors: {},
       user: {
+        name: name,
+        email: email,
         old_password: '',
         password: '',
         confir_password: ''
       }
     };
-
     this.processForm = this.processForm.bind(this);
     this.changeUser = this.changeUser.bind(this);
   }
@@ -35,15 +39,20 @@ class ChangePasswordPage extends React.Component {
     event.preventDefault();
 
     // create a string for an HTTP body message
+    const email = encodeURIComponent(this.state.user.email);
+    const name = encodeURIComponent(this.state.user.name);
     const old_password = encodeURIComponent(this.state.user.old_password);
     const password = encodeURIComponent(this.state.user.password);
     const confir_password = encodeURIComponent(this.state.user.confir_password);
-    const formData = `password=${password}&confir_password=${confir_password}`;
+    const formData = `email=${email}&name=${name}&password=${password}&confir_password=${confir_password}&old_password=${old_password}`;
 
+    console.log(formData)
     // create an AJAX request
     const xhr = new XMLHttpRequest();
-    xhr.open('post', '/api/changePassword/');
+    xhr.open('post', '/api/changeProfile');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    // set the authorization HTTP header
+    xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
@@ -54,8 +63,16 @@ class ChangePasswordPage extends React.Component {
           errors: {}
         });
 
+        console.log(xhr.response.user.email)
+        // set a user profile items
+        localStorage.setItem('userProfileName', xhr.response.user.name);
+        localStorage.setItem('userProfileEmail', xhr.response.user.email);
+
         // set a message
         localStorage.setItem('successMessage', xhr.response.message);
+
+        //Cerramos sesion para iniciar con los nuevos datos
+        Auth.deauthenticateUser();
 
         // change the current URL to /
         this.context.router.replace('/login');
@@ -94,7 +111,7 @@ class ChangePasswordPage extends React.Component {
    */
   render() {
     return (
-      <ChangePassword
+      <ChangeProfile
         onSubmit={this.processForm}
         onChange={this.changeUser}
         errors={this.state.errors}
@@ -105,8 +122,8 @@ class ChangePasswordPage extends React.Component {
 
 }
 
-ChangePasswordPage.contextTypes = {
+ChangeProfilePage.contextTypes = {
   router: PropTypes.object.isRequired
 };
 
-export default ChangePasswordPage;
+export default ChangeProfilePage;

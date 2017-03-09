@@ -94,7 +94,6 @@ function validateNewPasswordForm(payload) {
   let isFormValid = true;
   let message = '';
 
-  console.log("password: " + payload.password.trim() + "confir_password: " + payload.confir_password.trim())
 
   if (!(payload.confir_password.trim()===payload.password.trim())){
     isFormValid = false;
@@ -112,6 +111,9 @@ function validateNewPasswordForm(payload) {
     errors.confir_password = 'Password must have at least 8 characters.';
   }
 
+  if (!isFormValid) {
+    message = 'Check the form for errors.';
+  }
   return {
     success: isFormValid,
     message,
@@ -212,7 +214,10 @@ router.post('/login', (req, res, next) => {
       success: true,
       message: 'You have successfully logged in!',
       token,
-      user: userData
+      user: {
+        name: userData.name,
+        email: req.body.email.toLowerCase()
+       } 
     });
   })(req, res, next);
 });
@@ -234,7 +239,7 @@ router.post('/forgot', function(req, res, next) {
       });
     },
     function(token, done) {
-      User.findOne({ email: req.body.email }, function(err, user) {
+      User.findOne({ email: req.body.email.toLowerCase() }, function(err, user) {
         if (!user) {
           return res.status(400).json({
           success: false,
@@ -260,7 +265,7 @@ router.post('/forgot', function(req, res, next) {
         }
       });
       var mailOptions = {
-        to: user.email,
+        to: user.email.toLowerCase(),
         from: 'passwordreset@demo.com',
         subject: 'Node.js Password Reset',
         text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
@@ -270,7 +275,7 @@ router.post('/forgot', function(req, res, next) {
       };
       smtpTransport.sendMail(mailOptions,function(err) {
         res.status(200).json({
-        message: "An e-mail has been sent to " + user.email + " with further instructions."
+        message: "An e-mail has been sent to " + user.email.toLowerCase() + " with further instructions."
         });
         done(err, 'done');
       });
@@ -320,15 +325,15 @@ router.post('/reset/:token', function(req, res) {
         }
       });
       var mailOptions = {
-        to: user.email,
+        to: user.email.toLowerCase(),
         from: 'passwordreset@demo.com',
         subject: 'Your password has been changed',
         text: 'Hello,\n\n' +
-          'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
+          'This is a confirmation that the password for your account ' + user.email.toLowerCase() + ' has just been changed.\n'
       };
       smtpTransport.sendMail(mailOptions,function(err) {
         res.status(200).json({
-        message: "An e-mail has been sent to " + user.email + " with confirmation. The password has been changed"
+        message: "An e-mail has been sent to " + user.email.toLowerCase() + " with confirmation. The password has been changed"
         });
         done(err, 'done');
       });

@@ -61,6 +61,11 @@ class LoginPage extends React.Component {
           errors: {}
         });
 
+        console.log(xhr.response.user.email)
+        // set a user profile items
+        localStorage.setItem('userProfileName', xhr.response.user.name);
+        localStorage.setItem('userProfileEmail', xhr.response.user.email);
+
         // save the token
         Auth.authenticateUser(xhr.response.token);
 

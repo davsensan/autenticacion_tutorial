@@ -6,6 +6,7 @@ import SignUpPage from './containers/SignUpPage.jsx';
 import UsersPage from './containers/UsersPage.jsx';
 import ForgotPage from './containers/ForgotPage.jsx';
 import NewPasswordPage from './containers/NewPasswordPage.jsx';
+import ChangeProfilePage from './containers/ChangeProfilePage.jsx';
 import Auth from './modules/Auth';
 
 
@@ -57,8 +58,8 @@ const routes = {
       component: NewPasswordPage
     },
     {
-      path: '/changePassword',
-      component: ChangePasswordPage
+      path: '/changeProfile',
+      component: ChangeProfilePage
     },
 
 

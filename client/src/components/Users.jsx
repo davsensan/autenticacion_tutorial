@@ -8,7 +8,7 @@ const Users = ({ users }) => (
   			<div key={i}>
   			<CardTitle
       			title={user.name}
-      			subtitle={user.timestand}
+      			subtitle={"Last modification: " + user.timestand}
     		/>
     			<CardText style={{ fontSize: '16px', color: 'green' }}>Contact: {user.email} </CardText>
     		</div>	

@@ -44,6 +44,7 @@ UserSchema.pre('save', function saveHook(next) {
 
       // replace a password string with hash value
       user.password = hash;
+      user.email=user.email.toLowerCase();
 
       //Timestand 
       user.timestand = new Date().toString();

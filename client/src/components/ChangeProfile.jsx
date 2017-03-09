@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
 
-const ChangePassword = ({
+const ChangeProfile = ({
   onSubmit,
   onChange,
   errors,
@@ -14,22 +14,28 @@ const ChangePassword = ({
   <Card className="container">
     <form action="/" onSubmit={onSubmit}>
       <h2 className="card-heading">Change Password</h2>
-
       {errors.summary && <p className="error-message">{errors.summary}</p>}
-
       <div className="field-line">
         <TextField
-          floatingLabelText="Old password"
-          type="password"
-          name="old_password"
+          floatingLabelText="Name"
+          name="name"
+          errorText={errors.name}
           onChange={onChange}
-          errorText={errors.password}
-          value={user.password}
+          value={user.name}
         />
       </div>
 
-
-
+      <div className="field-line">
+        <TextField
+          floatingLabelText="Email"
+          name="email"
+          errorText={errors.email}
+          onChange={onChange}
+          value={user.email}
+        />
+      </div>
+      <br/>
+      <h4 className="card-heading">If this fields are empty, this parameter doesn't change </h4> 
       <div className="field-line">
         <TextField
           floatingLabelText="New password"
@@ -54,19 +60,31 @@ const ChangePassword = ({
         />
       </div>
 
+      
+      <div className="field-line">
+        <CardText className="card-heading">For your security, please enter your current password </CardText>
+        <TextField
+          floatingLabelText="Current password"
+          type="password"
+          name="old_password"
+          onChange={onChange}
+          errorText={errors.old_password}
+          value={user.old_password}
+        />
+      </div>
 
       <div className="button-line">
-        <RaisedButton type="submit" label="Change Password" primary />
+        <RaisedButton type="submit" label="Change Profile" primary />
       </div>
     </form>
   </Card>
 );
 
-ChangePassword.propTypes = {
+ChangeProfile.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired
 };
 
-export default ChangePassword;
+export default ChangeProfile;

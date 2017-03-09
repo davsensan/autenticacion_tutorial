@@ -10,6 +10,15 @@ class SignUpPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
+    
+    const storedMessage = localStorage.getItem('successMessage');
+    let successMessage = '';
+
+    if (storedMessage) {
+      successMessage = storedMessage;
+      localStorage.removeItem('successMessage');
+    }
+
     // set the initial component state
     this.state = {
       errors: {},
