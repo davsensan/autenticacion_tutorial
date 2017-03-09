@@ -22,7 +22,7 @@ const NewPassword = ({
         <TextField
           floatingLabelText="Password"
           type="password"
-          name="New password"
+          name="password"
           onChange={onChange}
           errorText={errors.password}
           value={user.password}
@@ -30,16 +30,18 @@ const NewPassword = ({
       </div>
 
 
+
       <div className="field-line">
         <TextField
-          floatingLabelText="Password"
+          floatingLabelText="Confirm new password"
           type="password"
-          name="Confirm new password"
+          name="confir_password"
           onChange={onChange}
-          errorText={errors.password}
+          errorText={errors.confir_password}
           value={user.confir_password}
         />
       </div>
+
 
       <div className="button-line">
         <RaisedButton type="submit" label="Change Password" primary />

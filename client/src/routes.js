@@ -52,7 +52,7 @@ const routes = {
       path: '/forgot',
       component: ForgotPage
     },{
-      path: '/reset/*',
+      path: '/reset/:token',
       component: NewPasswordPage
     }
 

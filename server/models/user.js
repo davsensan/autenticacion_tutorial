@@ -11,7 +11,7 @@ const UserSchema = new mongoose.Schema({
   name: String,
   timestand: String,
   resetPasswordToken: String,
-  resetPasswordEspires: Date
+  resetPasswordExpires: Date
 });
 
 

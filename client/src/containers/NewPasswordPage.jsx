@@ -15,7 +15,8 @@ class NewPasswordPage extends React.Component {
     this.state = {
       errors: {},
       user: {
-        email: ''
+        password: '',
+        confir_password: ''
       }
     };
 
@@ -39,7 +40,7 @@ class NewPasswordPage extends React.Component {
 
     // create an AJAX request
     const xhr = new XMLHttpRequest();
-    xhr.open('post', '/auth/reset:token');
+    xhr.open('post', '/auth/reset/' + this.props.params.token );
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {

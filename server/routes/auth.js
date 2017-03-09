@@ -94,6 +94,14 @@ function validateNewPasswordForm(payload) {
   let isFormValid = true;
   let message = '';
 
+  console.log("password: " + payload.password.trim() + "confir_password: " + payload.confir_password.trim())
+
+  if (!(payload.confir_password.trim()===payload.password.trim())){
+    isFormValid = false;
+    errors.password = 'Password must be the same.';
+    errors.confir_password = 'Password must be the same.';
+  }
+
   if (!payload || typeof payload.password !== 'string' || payload.password.trim().length < 8) {
     isFormValid = false;
     errors.password = 'Password must have at least 8 characters.';
@@ -103,12 +111,6 @@ function validateNewPasswordForm(payload) {
     isFormValid = false;
     errors.confir_password = 'Password must have at least 8 characters.';
   }
-
-  if (!(payload.confir_password.trim()===payload.password.trim())){
-    isFormValid = false;
-    errors.password = 'Password must be the same.';
-  }
-
 
   return {
     success: isFormValid,
@@ -253,8 +255,8 @@ router.post('/forgot', function(req, res, next) {
       var smtpTransport = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-          user: 'davsensan@gmail.com',
-          pass: 'd5s5s10D5S5S10'
+          user: 'desarrollo.dsenas@gmail.com',
+          pass: 'desarrollodsenas'
         }
       });
       var mailOptions = {
@@ -263,7 +265,7 @@ router.post('/forgot', function(req, res, next) {
         subject: 'Node.js Password Reset',
         text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
           'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-          'http://' + req.headers.host + '/reset/' + token + '\n\n' +
+          'http://' + req.headers.host + '/#/reset/' + token + '\n\n' +
           'If you did not request this, please ignore this email and your password will remain unchanged.\n'
       };
       smtpTransport.sendMail(mailOptions,function(err) {
@@ -276,7 +278,7 @@ router.post('/forgot', function(req, res, next) {
     }
   ], function(err) {
     if (err) return next(err);
-    res.redirect('/forgot');
+    res.redirect('/');
   });
 });
 
@@ -293,6 +295,7 @@ router.post('/reset/:token', function(req, res) {
     function(done) {
       User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
         if (!user) {
+          //console.log(user)
           return res.status(400).json({
           success: false,
           message: "Password reset token is invalid or has expired."
@@ -304,9 +307,7 @@ router.post('/reset/:token', function(req, res) {
         user.resetPasswordExpires = undefined;
 
         user.save(function(err) {
-          req.logIn(user, function(err) {
             done(err, user);
-          });
         });
       });
     },
@@ -314,8 +315,8 @@ router.post('/reset/:token', function(req, res) {
       var smtpTransport = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-          user: 'davsensan@gmail.com',
-          pass: 'd5s5s10D5S5S10'
+          user: 'desarrollo.dsenas@gmail.com',
+          pass: 'desarrollodsenas'
         }
       });
       var mailOptions = {
