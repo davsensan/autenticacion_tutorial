@@ -10,18 +10,19 @@ const LoginForm = ({
   onChange,
   errors,
   successMessage,
-  user
+  user,
+  info
 }) => (
   <Card className="container">
     <form action="/" onSubmit={onSubmit}>
-      <h2 className="card-heading">Login</h2>
-
+      <h2 className="card-heading">{info.login}</h2>
+      {console.log(onChange)}
       {successMessage && <p className="success-message">{successMessage}</p>}
       {errors.summary && <p className="error-message">{errors.summary}</p>}
 
       <div className="field-line">
         <TextField
-          floatingLabelText="Email"
+          floatingLabelText={info.email}
           name="email"
           errorText={errors.email}
           onChange={onChange}
@@ -31,7 +32,7 @@ const LoginForm = ({
 
       <div className="field-line">
         <TextField
-          floatingLabelText="Password"
+          floatingLabelText={info.password}
           type="password"
           name="password"
           onChange={onChange}
@@ -41,11 +42,11 @@ const LoginForm = ({
       </div>
 
       <div className="button-line">
-        <RaisedButton type="submit" label="Log in" primary />
+        <RaisedButton type="submit" label={info.login} primary />
       </div>
 
-      <CardText>Don't have an account? <Link to={'/signup'}>Create one</Link>.</CardText>
-      <CardText> Forgot your password? <Link to={'/forgot'}>Reset password</Link>.</CardText>
+      <CardText>{info.signup}<Link to={'/signup'}>{info.createUser}</Link>.</CardText>
+      <CardText>{info.forgot}<Link to={'/forgot'}>{info.remember}</Link>.</CardText>
     </form>
   </Card>
 );
@@ -55,7 +56,8 @@ LoginForm.propTypes = {
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   successMessage: PropTypes.string.isRequired,
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  info: PropTypes.object.isRequired
 };
 
 export default LoginForm;

@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import Auth from '../modules/Auth';
 import LoginForm from '../components/LoginForm.jsx';
+import { connect } from 'react-redux';
+import {action_switchLanguage} from "../actions"
 
 
 class LoginPage extends React.Component {
@@ -61,7 +63,6 @@ class LoginPage extends React.Component {
           errors: {}
         });
 
-        console.log(xhr.response.user.email)
         // set a user profile items
         localStorage.setItem('userProfileName', xhr.response.user.name);
         localStorage.setItem('userProfileEmail', xhr.response.user.email);
@@ -100,6 +101,9 @@ class LoginPage extends React.Component {
     this.setState({
       user
     });
+    console.log(this.state.user)
+
+
   }
 
   /**
@@ -113,6 +117,7 @@ class LoginPage extends React.Component {
         errors={this.state.errors}
         successMessage={this.state.successMessage}
         user={this.state.user}
+        info={this.props.info}
       />
     );
   }
@@ -123,4 +128,8 @@ LoginPage.contextTypes = {
   router: PropTypes.object.isRequired
 };
 
-export default LoginPage;
+const LoginPageConnect = connect(
+    state => ({info: state.content.loginPage}),
+    null)(LoginPage)
+
+export default LoginPageConnect

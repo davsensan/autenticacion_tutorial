@@ -8,19 +8,45 @@
       "basePage": {
         "react": "React App",
         "login": "Log in",
-        "signup": "Sign up"
+        "signup": "Sign up",
+        "logout": "Log out",
+        "changeProfile": "Profile",
+        "users": "List users"
+      },
+      "loginPage": {
+        "login": "Login",
+        "email": "Email",
+        "password": "Password",
+        "login": "Log in",
+        "signup": "Don't have an account?",
+        "forgot": "Forgot your password?",
+        "createUser": "Create one",
+        "remember": "Remember password"
       }
     },
     {
       "lang": "es",
       "homePage": {
-      "title": "Aplicacion hecha con React",
-      "subtitle": "Esta es la pagina principal."
+      "title": "Aplicación hecha con React",
+      "subtitle": "Esta es la página principal."
     },
       "basePage": {
-        "react": "Aplicacion React",
+        "react": "Aplicación React",
         "login": "Iniciar sesión",
-        "signup": "Registrarse"
+        "signup": "Registrarse",
+        "logout": "Cerrar sesión",
+        "changeProfile": "Perfil",
+        "users": "Listar usuarios"
+      },
+      "loginPage": {
+        "login": "Iniciar sesión",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "login": "Iniciar sesión",
+        "signup": "¿No tiene una cuenta?",
+        "forgot": "¿Olvidó su contraseña?",
+        "createUser": "Crear cuenta",
+        "remember": "Recordar contraseña"
       }
     }
 ]

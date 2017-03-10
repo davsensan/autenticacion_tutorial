@@ -1,7 +1,7 @@
 import BasePage from './containers/BasePage.jsx';
 import HomePage from './containers/HomePage.jsx';
 import DashboardPage from './containers/DashboardPage.jsx';
-import LoginPage from './containers/LoginPage.jsx';
+import LoginPageConnect from './containers/LoginPageConnect.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
 import UsersPage from './containers/UsersPage.jsx';
 import ForgotPage from './containers/ForgotPage.jsx';
@@ -28,7 +28,7 @@ const routes = {
 
     {
       path: '/login',
-      component: LoginPage
+      component: LoginPageConnect
     },
 
     {
