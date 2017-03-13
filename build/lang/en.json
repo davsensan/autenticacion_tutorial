@@ -5,6 +5,7 @@
   "Base.Logout": "Log out",
   "Base.Login": "Log in",
   "Base.Signup": "Sign up",
+  "Base.Remove": "Remove user",
   "ChangeProfile.ChangePassword": "Change Password",
   "ChangeProfile.TextName": "Name",
   "ChangeProfile.TextEmail": "email",

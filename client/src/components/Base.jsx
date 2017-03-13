@@ -29,6 +29,10 @@ const messages = defineMessages({
     id: 'Base.Signup',
     defaultMessage: 'Sign up',
   },
+  Remove: {
+    id: 'Base.Remove',
+    defaultMessage: 'Remove user',
+  }
 });
 
 
@@ -43,6 +47,7 @@ const Base = ({ children, intl, locale}) => (
 
       {Auth.isUserAuthenticated() ? (
         <div className="top-bar-right">
+          <Link to="/remove" style={{color:'red'}}>{intl.formatMessage(messages.Remove)}</Link>
           <Link to="/users">{intl.formatMessage(messages.Users)}</Link>
           <Link to="/changeProfile">{intl.formatMessage(messages.ChangeProfile)}</Link>
           <Link to="/logout">{intl.formatMessage(messages.Logout)}</Link>

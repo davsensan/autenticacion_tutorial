@@ -9,7 +9,6 @@ import NewPasswordPage from './containers/NewPasswordPage.jsx';
 import ChangeProfilePage from './containers/ChangeProfilePage.jsx';
 import Auth from './modules/Auth';
 
-
 const routes = {
   // base component (wrapper for the whole application).
   component: BasePage,
@@ -61,7 +60,27 @@ const routes = {
       path: '/changeProfile',
       component: ChangeProfilePage
     },
-
+    {
+      path:'/remove',
+      onEnter: (nextState, replace) => {
+        {
+        const xhr = new XMLHttpRequest();
+        xhr.open('get', '/api/remove');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        // set the authorization HTTP header
+        xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+        xhr.responseType = 'json';
+        xhr.addEventListener('load', () => {
+            if (xhr.status === 200) {
+              console.log(xhr.response.message)
+               } 
+        }); 
+        xhr.send();
+        Auth.deauthenticateUser();
+        replace('/')
+        }
+      }
+    }
 
   ]
 };

@@ -23,7 +23,6 @@ class UsersPage extends React.Component {
    */
   componentWillMount() {
     const xhr = new XMLHttpRequest();
-    console.log("componentWillMount")
     xhr.open('get', '/api/users');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     // set the authorization HTTP header
@@ -38,7 +37,6 @@ class UsersPage extends React.Component {
     });
     xhr.send();
   }
-
   /**
    * Render the component.
    */

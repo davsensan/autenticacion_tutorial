@@ -22,5 +22,9 @@
   {
     "id": "Base.Signup",
     "defaultMessage": "Sign up"
+  },
+  {
+    "id": "Base.Remove",
+    "defaultMessage": "Remove user"
   }
 ]
