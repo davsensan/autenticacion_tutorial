@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   // the entry file for the bundle
-  entry: path.join(__dirname, '/client/src/app.jsx'),
+  entry: path.join(__dirname, '/client/src/index.jsx'),
 
   // the bundle file we will get in the result
   output: {
@@ -22,6 +22,9 @@ module.exports = {
         presets: ["react", "es2015"]
       }
     }],
+  },
+  node: {
+  fs: "empty"
   },
 
   // start Webpack in a watch mode, so Webpack will rebuild the bundle on changes

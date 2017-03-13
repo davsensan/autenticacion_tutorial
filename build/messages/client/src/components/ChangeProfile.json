@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ChangeProfile.ChangePassword",
+    "defaultMessage": "Change Password"
+  },
+  {
+    "id": "ChangeProfile.TextName",
+    "defaultMessage": "Name"
+  },
+  {
+    "id": "ChangeProfile.TextEmail",
+    "defaultMessage": "email"
+  },
+  {
+    "id": "ChangeProfile.Advertisment",
+    "defaultMessage": "If this fields are empty, this parameter doesn't change"
+  },
+  {
+    "id": "ChangeProfile.TextNewPassword",
+    "defaultMessage": "New password"
+  },
+  {
+    "id": "ChangeProfile.TextConfirmPassword",
+    "defaultMessage": "Confirm your new password"
+  },
+  {
+    "id": "ChangeProfile.AdvertismentSecurity",
+    "defaultMessage": "For your security, please enter your current password"
+  },
+  {
+    "id": "ChangeProfile.TextCurrentPassword",
+    "defaultMessage": "Current password"
+  },
+  {
+    "id": "ChangeProfile.ButtonProfile",
+    "defaultMessage": "Change profile"
+  }
+]

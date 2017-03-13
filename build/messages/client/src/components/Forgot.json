@@ -1,0 +1,22 @@
+[
+  {
+    "id": "Forgot.Forgot_title",
+    "defaultMessage": "Forgot Password"
+  },
+  {
+    "id": "Forgot.Button_forgot",
+    "defaultMessage": "Send"
+  },
+  {
+    "id": "Forgot.Message_account",
+    "defaultMessage": "Do you have an account?"
+  },
+  {
+    "id": "Forgot.TextEmail_Forgot",
+    "defaultMessage": "Email"
+  },
+  {
+    "id": "Forgot.Login_Forgot",
+    "defaultMessage": "Log in"
+  }
+]

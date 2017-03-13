@@ -1,0 +1,10 @@
+[
+  {
+    "id": "Dashboard.Title_Dashboard",
+    "defaultMessage": "Dashboard"
+  },
+  {
+    "id": "Dashboard.Subtitle_Dashboard",
+    "defaultMessage": "You should get access to this page only after authentication."
+  }
+]

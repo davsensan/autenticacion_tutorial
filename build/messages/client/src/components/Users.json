@@ -1,0 +1,14 @@
+[
+  {
+    "id": "Users.LastModificate",
+    "defaultMessage": "Last modification:"
+  },
+  {
+    "id": "Users.Contact",
+    "defaultMessage": "Contact:"
+  },
+  {
+    "id": "Users.UserCount",
+    "defaultMessage": "{count, number} {count, plural, one {user registered} other {users registered}}"
+  }
+]

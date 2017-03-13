@@ -3,21 +3,64 @@ import { Link } from 'react-router';
 import { Card, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import { FormattedMessage, intlShape, injectIntl, defineMessages } from 'react-intl';
+
+
+const messages = defineMessages({
+  ChangePassword: {
+    id: 'ChangeProfile.ChangePassword',
+    defaultMessage: 'Change Password',
+  },
+  TextName: {
+    id: 'ChangeProfile.TextName',
+    defaultMessage: 'Name',
+  },
+  TextEmail: {
+    id: 'ChangeProfile.TextEmail',
+    defaultMessage: 'email',
+  },
+  Advertisment: {
+    id: 'ChangeProfile.Advertisment',
+    defaultMessage: "If this fields are empty, this parameter doesn't change",
+  },
+  TextNewPassword: {
+    id: 'ChangeProfile.TextNewPassword',
+    defaultMessage: 'New password',
+  },
+  TextConfirmPassword: {
+    id: 'ChangeProfile.TextConfirmPassword',
+    defaultMessage: 'Confirm your new password',
+  },
+  AdvertismentSecurity: {
+    id: 'ChangeProfile.AdvertismentSecurity',
+    defaultMessage: 'For your security, please enter your current password',
+  },
+  TextCurrentPassword: {
+    id: 'ChangeProfile.TextCurrentPassword',
+    defaultMessage: 'Current password',
+  },
+  ButtonProfile: {
+    id: 'ChangeProfile.ButtonProfile',
+    defaultMessage: 'Change profile',
+  },
+  
+});
 
 
 const ChangeProfile = ({
   onSubmit,
   onChange,
   errors,
-  user
+  user,
+  intl
 }) => (
   <Card className="container">
     <form action="/" onSubmit={onSubmit}>
-      <h2 className="card-heading">Change Password</h2>
+      <h2 className="card-heading">{intl.formatMessage(messages.ChangePassword)}</h2>
       {errors.summary && <p className="error-message">{errors.summary}</p>}
       <div className="field-line">
         <TextField
-          floatingLabelText="Name"
+          floatingLabelText={intl.formatMessage(messages.TextName)}
           name="name"
           errorText={errors.name}
           onChange={onChange}
@@ -27,7 +70,7 @@ const ChangeProfile = ({
 
       <div className="field-line">
         <TextField
-          floatingLabelText="Email"
+          floatingLabelText={intl.formatMessage(messages.TextEmail)}
           name="email"
           errorText={errors.email}
           onChange={onChange}
@@ -35,10 +78,10 @@ const ChangeProfile = ({
         />
       </div>
       <br/>
-      <h4 className="card-heading">If this fields are empty, this parameter doesn't change </h4> 
+      <h4 className="card-heading">{intl.formatMessage(messages.Advertisment)}</h4> 
       <div className="field-line">
         <TextField
-          floatingLabelText="New password"
+          floatingLabelText={intl.formatMessage(messages.TextNewPassword)}
           type="password"
           name="password"
           onChange={onChange}
@@ -51,7 +94,7 @@ const ChangeProfile = ({
 
       <div className="field-line">
         <TextField
-          floatingLabelText="Confirm new password"
+          floatingLabelText={intl.formatMessage(messages.TextConfirmPassword)}
           type="password"
           name="confir_password"
           onChange={onChange}
@@ -62,9 +105,9 @@ const ChangeProfile = ({
 
       
       <div className="field-line">
-        <CardText className="card-heading">For your security, please enter your current password </CardText>
+        <CardText className="card-heading">{intl.formatMessage(messages.AdvertismentSecurity)}</CardText>
         <TextField
-          floatingLabelText="Current password"
+          floatingLabelText={intl.formatMessage(messages.TextCurrentPassword)}
           type="password"
           name="old_password"
           onChange={onChange}
@@ -74,7 +117,7 @@ const ChangeProfile = ({
       </div>
 
       <div className="button-line">
-        <RaisedButton type="submit" label="Change Profile" primary />
+        <RaisedButton type="submit" label={intl.formatMessage(messages.ButtonProfile)} primary />
       </div>
     </form>
   </Card>
@@ -84,7 +127,9 @@ ChangeProfile.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  intl: intlShape.isRequired,
+
 };
 
-export default ChangeProfile;
+export default injectIntl(ChangeProfile);

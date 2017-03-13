@@ -1,4 +1,4 @@
-import Base from './components/Base.jsx';
+import BasePage from './containers/BasePage.jsx';
 import HomePage from './components/HomePage.jsx';
 import DashboardPage from './containers/DashboardPage.jsx';
 import LoginPage from './containers/LoginPage.jsx';
@@ -12,7 +12,7 @@ import Auth from './modules/Auth';
 
 const routes = {
   // base component (wrapper for the whole application).
-  component: Base,
+  component: BasePage,
   childRoutes: [
 
     {

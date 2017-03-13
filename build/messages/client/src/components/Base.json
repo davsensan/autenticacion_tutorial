@@ -1,0 +1,26 @@
+[
+  {
+    "id": "Base.ReactApp",
+    "defaultMessage": "React Base"
+  },
+  {
+    "id": "Base.Users",
+    "defaultMessage": "List users"
+  },
+  {
+    "id": "Base.ChangeProfile",
+    "defaultMessage": "Change profile"
+  },
+  {
+    "id": "Base.Logout",
+    "defaultMessage": "Log out"
+  },
+  {
+    "id": "Base.Login",
+    "defaultMessage": "Log in"
+  },
+  {
+    "id": "Base.Signup",
+    "defaultMessage": "Sign up"
+  }
+]
