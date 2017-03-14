@@ -1,11 +1,13 @@
 {
-  "Base.ReactApp": "Aplicación de React",
+  "Base.ReactApp": "Aplicación de React    ",
   "Base.Users": "Listar usuarios",
   "Base.ChangeProfile": "Cambiar perfil",
   "Base.Logout": "Cerrar sesión",
   "Base.Login": "Iniciar sesión",
   "Base.Signup": "Registrarse",
   "Base.Remove": "Eliminar usuario",
+  "Base.Spanish": "Español",
+  "Base.English": "Inglés",
   "ChangeProfile.ChangePassword": "Cambiar contraseña",
   "ChangeProfile.TextName": "Nombre",
   "ChangeProfile.TextEmail": "Correo electrónico",
@@ -19,10 +21,10 @@
   "Dashboard.Subtitle_Dashboard": "Si puede ver este mensaje significa que está autenticado.",
   "Forgot.Forgot_title": "Recordar contraseña",
   "Forgot.Button_forgot": "Enviar",
-  "Forgot.Message_account": "¿Ya tiene una cuenta",
+  "Forgot.Message_account": "¿Ya tiene una cuenta? ",
   "Forgot.TextEmail_Forgot": "Email",
   "Forgot.Login_Forgot": "Iniciar sesión",
-  "Users.LastModificate": "Última modificación",
+  "Users.LastModificate": "Última modificación: ",
   "Users.Contact": "Contactar: ",
   "Users.UserCount": "{count, number} {count, plural, one {usuario registrado} other {usuarios registrados}}"
 }

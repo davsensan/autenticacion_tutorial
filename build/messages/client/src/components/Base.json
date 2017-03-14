@@ -1,7 +1,7 @@
 [
   {
     "id": "Base.ReactApp",
-    "defaultMessage": "React Base"
+    "defaultMessage": "React"
   },
   {
     "id": "Base.Users",
@@ -26,5 +26,13 @@
   {
     "id": "Base.Remove",
     "defaultMessage": "Remove user"
+  },
+  {
+    "id": "Base.Spanish",
+    "defaultMessage": "Spanish"
+  },
+  {
+    "id": "Base.English",
+    "defaultMessage": "English"
   }
 ]

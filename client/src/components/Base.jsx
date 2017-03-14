@@ -7,7 +7,7 @@ import { FormattedMessage, intlShape, injectIntl, defineMessages } from 'react-i
 const messages = defineMessages({
   ReactApp: {
     id: 'Base.ReactApp',
-    defaultMessage: 'React Base',
+    defaultMessage: 'React    ',
   },
   Users: {
     id: 'Base.Users',
@@ -32,6 +32,14 @@ const messages = defineMessages({
   Remove: {
     id: 'Base.Remove',
     defaultMessage: 'Remove user',
+  },
+  Spanish: {
+    id: 'Base.Spanish',
+    defaultMessage: 'Spanish',
+  },
+  English: {
+    id: 'Base.English',
+    defaultMessage: 'English',
   }
 });
 
@@ -40,9 +48,9 @@ const Base = ({ children, intl, locale}) => (
   <div>
     <div className="top-bar">
       <div className="top-bar-left">
-        <IndexLink to="/">{intl.formatMessage(messages.ReactApp)}</IndexLink>
-        {console.log("language en base = " + intl.locale)}
-        {console.log(intl.messages)}
+        <IndexLink to="/" style={{color: 'blue'}}>{intl.formatMessage(messages.ReactApp)}</IndexLink>
+        <Link to="/spanish" style={(intl.locale==="es" || intl.locale ==="es-ES") ? {fontSize: '16px', color:'white', background: 'green'} : {fontSize: '16px'}}>{intl.formatMessage(messages.Spanish)}</Link>
+        <Link to="/english" style={(intl.locale==="en") ? {fontSize: '16px', color:'white', background: 'green'} : {fontSize: '16px'}}>{intl.formatMessage(messages.English)}</Link>
       </div>
 
       {Auth.isUserAuthenticated() ? (
@@ -57,8 +65,7 @@ const Base = ({ children, intl, locale}) => (
           <Link to="/login">{intl.formatMessage(messages.Login)}</Link>
           <Link to="/signup">{intl.formatMessage(messages.Signup)}</Link>
         </div>
-      )}
-
+        )}
     </div>
 
     { /* child component will be rendered here */ }

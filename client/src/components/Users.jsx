@@ -12,10 +12,6 @@ const messages = defineMessages({
     id: 'Users.Contact',
     defaultMessage: 'Contact: ',
   },
-  Contact: {
-    id: 'Users.Contact',
-    defaultMessage: 'Contact: ',
-  },
   UserCount:
   {
   id:'Users.UserCount', 
@@ -36,7 +32,7 @@ const Users = ({ users, intl }) => (
       			subtitle={intl.formatMessage(messages.LastModificate) + user.timestand}
     		/>
         
-    			<CardText style={{ fontSize: '16px', color: 'green' }}>Contact: {user.email} </CardText>
+    			<CardText style={{ fontSize: '16px', color: 'green' }}>{intl.formatMessage(messages.Contact) + user.email} </CardText>
     		</div>	
     )};
   </Card>  

@@ -13,7 +13,6 @@ class ChangeProfilePage extends React.Component {
 
     const name = localStorage.getItem('userProfileName');
     const email = localStorage.getItem('userProfileEmail')
-    console.log("name: " + name + " email: " + email)
     // set the initial component state
     this.state = {
       errors: {},
@@ -46,7 +45,6 @@ class ChangeProfilePage extends React.Component {
     const confir_password = encodeURIComponent(this.state.user.confir_password);
     const formData = `email=${email}&name=${name}&password=${password}&confir_password=${confir_password}&old_password=${old_password}`;
 
-    console.log(formData)
     // create an AJAX request
     const xhr = new XMLHttpRequest();
     xhr.open('post', '/api/changeProfile');

@@ -72,13 +72,34 @@ const routes = {
         xhr.responseType = 'json';
         xhr.addEventListener('load', () => {
             if (xhr.status === 200) {
-              console.log(xhr.response.message)
+              alert(xhr.response.message);
                } 
         }); 
         xhr.send();
         Auth.deauthenticateUser();
         replace('/')
         }
+      }
+    },
+    {
+      path: '/spanish',
+      onEnter: (nextState, replace) => {
+        localStorage.setItem("language", "es")
+        console.log(localStorage.getItem("language"))
+        // change the current URL to /
+        replace('/');
+        //Recargamos para obtener los datos necesarios en el idioma español
+        window.location.reload()
+      }
+    },
+    {
+      path: '/english',
+      onEnter: (nextState, replace) => {
+        localStorage.setItem("language", "en")
+        // change the current URL to /
+        replace('/');
+        //Recargamos para obtener los datos necesarios en el idioma español
+        window.location.reload()
       }
     }
 

@@ -19,11 +19,9 @@ const language_navigator = (navigator.languages && navigator.languages[0]) ||
                      navigator.userLanguage;
 
 
-
+console.log("Navigator language: " + language_navigator);
 // Split locales with a region code
 const languageWithoutRegionCode = language_navigator.toLowerCase().split(/[_-]+/)[0];
-
-
 
 const messages = {};
 const languages = ['en', 'es'];
@@ -45,7 +43,7 @@ if (!window.Intl) {
     require('intl/locale-data/jsonp/es.js');
 
     render(
-      <IntlProvider locale={languageWithoutRegionCode} messages={messages[languageWithoutRegionCode] || messages[language_navigator] || messages.en}>
+      <IntlProvider locale={localStorage.getItem("language")} messages={messages[localStorage.getItem("language")] || messages[languageWithoutRegionCode] || messages[language_navigator] || messages.en}>
       <App />
     </IntlProvider>,
     document.getElementById('react-app')
@@ -53,7 +51,7 @@ if (!window.Intl) {
   });
 } else {
   render(
-    <IntlProvider locale={languageWithoutRegionCode} messages={messages[languageWithoutRegionCode] || messages[language_navigator] || messages.en}>
+    <IntlProvider locale={localStorage.getItem("language")} messages={messages[localStorage.getItem("language")] || messages[languageWithoutRegionCode] || messages[language_navigator] || messages.en}>
       <App />
     </IntlProvider>,
     document.getElementById('react-app')
