@@ -1,12 +1,12 @@
 branches:
-	only:
-		- master
-		- testBranch
+    only:
+        - master
+        - testBranch
 
 language: node_js
 
 services:
-	- mongodb
+    - mongodb
 
 before_script:
-	- npm install
+    - npm install
