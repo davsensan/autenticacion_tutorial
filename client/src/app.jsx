@@ -18,6 +18,7 @@ class App extends React.Component{
 		    <Router history={hashHistory} routes={routes} />
 		  </MuiThemeProvider>
 		);
+		
 	}
 }
 
