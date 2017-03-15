@@ -1,5 +1,5 @@
 import BasePage from './containers/BasePage.jsx';
-import HomePage from './components/HomePage.jsx';
+import HomePage from './containers/HomePage.jsx';
 import DashboardPage from './containers/DashboardPage.jsx';
 import LoginPage from './containers/LoginPage.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
@@ -63,7 +63,6 @@ const routes = {
     {
       path:'/remove',
       onEnter: (nextState, replace) => {
-        {
         const xhr = new XMLHttpRequest();
         xhr.open('get', '/api/remove');
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -72,14 +71,17 @@ const routes = {
         xhr.responseType = 'json';
         xhr.addEventListener('load', () => {
             if (xhr.status === 200) {
-              alert(xhr.response.message);
+              localStorage.setItem("successMessage", xhr.response.message);
                } 
         }); 
         xhr.send();
         Auth.deauthenticateUser();
-        replace('/')
+        replace('/');
+        setTimeout(function() {
+        //Recargamos para obtener los datos necesarios en el idioma español
+        location.reload()
+        }, 10);
         }
-      }
     },
     {
       path: '/spanish',
@@ -88,8 +90,13 @@ const routes = {
         console.log(localStorage.getItem("language"))
         // change the current URL to /
         replace('/');
+        //Esperamos 10 milisegundos antes de recargar. Si no esperamos un tiempo, en algunos navegadores
+        //se recarga antes de cambiar la ruta y se hace un bucle infinito de llamadas a /spanish
+        setTimeout(function() {
         //Recargamos para obtener los datos necesarios en el idioma español
-        window.location.reload()
+        location.reload()
+        }, 10)
+
       }
     },
     {
@@ -98,8 +105,12 @@ const routes = {
         localStorage.setItem("language", "en")
         // change the current URL to /
         replace('/');
+        //Esperamos 10 milisegundos antes de recargar. Si no esperamos un tiempo, en algunos navegadores
+        //se recarga antes de cambiar la ruta y se hace un bucle infinito de llamadas a /spanish
+        setTimeout(function() {
         //Recargamos para obtener los datos necesarios en el idioma español
-        window.location.reload()
+        location.reload()      
+        }, 10)
       }
     }
 

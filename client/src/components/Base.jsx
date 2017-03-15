@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
 import Auth from '../modules/Auth';
 import { FormattedMessage, intlShape, injectIntl, defineMessages } from 'react-intl';
+import DialogConfirm from '../containers/DialogConfirm.jsx';
 
 
 const messages = defineMessages({
@@ -40,6 +41,18 @@ const messages = defineMessages({
   English: {
     id: 'Base.English',
     defaultMessage: 'English',
+  },
+  MessageConfirm: {
+    id: 'Base.MessageConfirm',
+    defaultMessage: 'Are you sure to remove your user?',
+  },
+  OkMessage: {
+    id: 'Base.OkMessage',
+    defaultMessage: 'Delete',
+  },
+  CancelMessage: {
+    id: 'Base.CancelMessage',
+    defaultMessage: 'Cancel',
   }
 });
 
@@ -55,7 +68,7 @@ const Base = ({ children, intl, locale}) => (
 
       {Auth.isUserAuthenticated() ? (
         <div className="top-bar-right">
-          <Link to="/remove" style={{color:'red'}}>{intl.formatMessage(messages.Remove)}</Link>
+          <DialogConfirm OkMessage={intl.formatMessage(messages.OkMessage)} CancelMessage={intl.formatMessage(messages.CancelMessage)} RemoveText={intl.formatMessage(messages.Remove)} MessageConfirm={intl.formatMessage(messages.MessageConfirm)} onClickCancel={() => window.location='/#' } onClickOK={() => window.location='/#remove'}/>
           <Link to="/users">{intl.formatMessage(messages.Users)}</Link>
           <Link to="/changeProfile">{intl.formatMessage(messages.ChangeProfile)}</Link>
           <Link to="/logout">{intl.formatMessage(messages.Logout)}</Link>

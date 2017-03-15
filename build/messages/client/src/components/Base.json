@@ -34,5 +34,17 @@
   {
     "id": "Base.English",
     "defaultMessage": "English"
+  },
+  {
+    "id": "Base.MessageConfirm",
+    "defaultMessage": "Are you sure to remove your user?"
+  },
+  {
+    "id": "Base.OkMessage",
+    "defaultMessage": "Delete"
+  },
+  {
+    "id": "Base.CancelMessage",
+    "defaultMessage": "Cancel"
   }
 ]
