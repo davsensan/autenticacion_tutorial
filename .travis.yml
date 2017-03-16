@@ -11,7 +11,7 @@ services:
 before_script:
     - npm run build
 script:
-    - npm run test-mocha
+    - npm run test
 env:
   - CXX=g++-4.8
 

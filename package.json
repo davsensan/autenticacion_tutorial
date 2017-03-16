@@ -8,7 +8,7 @@
     "build-dev": "webpack --progress -w",
     "build": "webpack",
     "build:langs": "babel scripts/translate.js | node",
-    "test-mocha": "node_modules/mocha/bin/mocha --compilers js:babel-core/register --recursive",
+    "test": "node_modules/mocha/bin/mocha --compilers js:babel-core/register --recursive",
     "test-eslint": "node_modules/.bin/eslint"
   },
   "repository": {
@@ -54,6 +54,7 @@
     "babel-preset-stage-0": "^6.22.0",
     "chai": "^3.5.0",
     "chai-jsx": "^1.0.1",
+    "chromedriver": "^2.28.0",
     "eslint": "^3.17.1",
     "eslint-plugin-react": "^6.10.0",
     "expect": "^1.20.2",
@@ -61,6 +62,7 @@
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
     "react-addons-test-utils": "^15.4.2",
+    "selenium-webdriver": "^3.3.0",
     "webpack": "^2.2.1"
   }
 }
