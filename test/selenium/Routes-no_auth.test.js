@@ -1,6 +1,3 @@
-import fs from 'fs';
-
-
 import webdriver, {By, until} from 'selenium-webdriver';
 
 const driver = new webdriver.Builder()
@@ -10,7 +7,7 @@ const driver = new webdriver.Builder()
 //Para configurar el timeout no pueden ser funciones arrows
 describe('Principal page router test', function() {
     // e2e tests are too slow for default Mocha timeout
-    this.timeout(100000);
+    this.timeout(10000);
 
     before(() => driver.navigate().to('http://127.0.0.1:3000/'));
 

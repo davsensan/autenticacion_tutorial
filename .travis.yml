@@ -10,6 +10,7 @@ services:
     - mongodb
 before_script:
     - npm run build
+    - npm run start &
 script:
     - npm run test
 env:
