@@ -7,7 +7,7 @@
     "start": "nodemon --use_strict index.js",
     "build-dev": "webpack --progress -w",
     "build": "webpack",
-    "build:langs": "babel scripts/translate.js | node",
+    "build:langs": "babel scripts/translate.js | node && cp -Rf build/lang/* client/data",
     "test": "node_modules/mocha/bin/mocha --compilers js:babel-core/register --recursive",
     "test-eslint": "node_modules/.bin/eslint"
   },

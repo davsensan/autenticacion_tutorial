@@ -26,7 +26,7 @@ const languageWithoutRegionCode = language_navigator.toLowerCase().split(/[_-]+/
 const messages = {};
 const languages = ['en', 'es'];
 languages.forEach((locale) => {
-  messages[locale] = require(`../../build/lang/${locale}.json`);
+  messages[locale] = require(`../data/${locale}.json`);
 });
 // Render our react-app component into the div with id "react-app"
 
